@@ -42,9 +42,9 @@ const setElementHandlers = (element, ratio) => {
   countDown.addEventListener(`click`, () => {
     changeCount(element, countField, `minus`);
     setPrices();
-  })
+  });
 
-  countField.addEventListener(`change`, () => {
+  countField.addEventListener(`input`, () => {
     setPrices();
   });
 

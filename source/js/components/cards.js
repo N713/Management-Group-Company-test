@@ -7,7 +7,7 @@ import {setElementHandlers} from "./handlers";
 const cardsContainer = document.body.querySelector(`.product__area`);
 
 const renderCards = (data) => {
-  const cards = Array.from(data);
+  const cards = Array.from(data).reverse();
 
   cards.map((card) => {
     const element = utils.makeElement(getCardTemplate(card));

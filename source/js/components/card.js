@@ -1,15 +1,9 @@
 `use strict`;
 
-const IMG_MOD = `_220x220_1`;
-
-const getImgUrl = (url) => {
-  const splittedUrl = url.split(`.`);
-  splittedUrl[1] = splittedUrl[1] + IMG_MOD;
-
-  return splittedUrl.join(`.`);
-}
+import {utils} from "./utils";
 
 const getCardTemplate = (data) => {
+
   return `<div id="products_section">
             <div class="products_page pg_0">
                 <div class="product product_horizontal">
@@ -19,7 +13,7 @@ const getCardTemplate = (data) => {
                     </div>
                     <div class="product_photo">
                         <a href="#" class="url--link product__link">
-                            <img src="${getImgUrl(data.primaryImageUrl)}">
+                            <img src="${utils.getImgUrl(data.primaryImageUrl)}">
                         </a>
                     </div>
                     <div class="product_description">
@@ -36,7 +30,7 @@ const getCardTemplate = (data) => {
                                 <p class="ng-binding">За ${data.unitAlt}</p>
                             </div>
                             <div class="unit--select">
-                                <p class="ng-binding">За ${data.unitFull}</p>
+                                <p class="ng-binding">За ${utils.makeRightWord(data.unitFull)}</p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +52,7 @@ const getCardTemplate = (data) => {
                          </span>
                     </p>
                     <div class="product_price_points">
-                        <p class="ng-binding">Можно купить за 231,75 балла</p>
+                        <p class="ng-binding">Можно купить за ${utils.makeRandomScore()} балла</p>
                     </div>
                     <div class="list--unit-padd"></div>
                     <div class="list--unit-desc">
@@ -68,8 +62,8 @@ const getCardTemplate = (data) => {
                             </div>
                             <div class="unit--desc-t">
                                 <p>
-                                    <span class="ng-binding">Продается упаковками:</span>
-                                    <span class="unit--infoInn">1 упак. = 2.47 м. кв. </span>
+                                    <span class="ng-binding">Продается ${utils.makeRightPack(data.unitFull)}:</span>
+                                    <span class="unit--infoInn">${utils.makeRightCount(data.unitFull)}</span>
                                 </p>
                             </div>
                         </div>
