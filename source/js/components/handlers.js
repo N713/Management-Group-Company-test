@@ -5,10 +5,10 @@ const changeCount = (element, field, direction = `plus`) => {
 
   if (direction === `minus`) {
     if(number > 0) {
-      number -= 1;
+      number--;
     }
   } else {
-    number += 1;
+    number++;
   }
 
   field.value = number;

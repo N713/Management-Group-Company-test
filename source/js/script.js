@@ -2,9 +2,6 @@
 
 import {load} from "./components/backend";
 import {renderCards} from "./components/cards";
+import {renderError} from "./components/error";
 
-const off = (response) => {
-  console.log(response);
-}
-
-load(renderCards, off);
+load(renderCards, renderError);

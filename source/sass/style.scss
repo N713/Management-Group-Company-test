@@ -1,3 +1,5 @@
+$mobileResolution: 499px;
+
 .stepper,
 .unit--desc-i {
   position: relative;
@@ -15,4 +17,18 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+@media (max-width: $mobileResolution) {
+  body,
+  .container,
+  .sub_category_page .column_right_products_container,
+  .product_horizontal {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .sub_category_page .column_right_products_container {
+    padding: 0 15px;
+  }
 }
