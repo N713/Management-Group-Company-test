@@ -5,11 +5,9 @@ const URL = `assets/products.json`;
 const load = (onSuccess, onError) => {
   const xhr = new XMLHttpRequest();
 
-  xhr.responseType = `json`;
-
   xhr.addEventListener(`load`, () => {
     if (xhr.status === 200) {
-      onSuccess(xhr.response);
+      onSuccess(JSON.parse(xhr.responseText));
     } else {
       onError(`Статус ответа: ` + xhr.status + ` ` + xhr.statusText);
     }
