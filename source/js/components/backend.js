@@ -5,26 +5,26 @@ const URL = `assets/products.json`;
 const load = (onSuccess, onError) => {
   const xhr = new XMLHttpRequest();
 
-  xhr.responseType = 'json';
+  xhr.responseType = `json`;
 
-  xhr.addEventListener('load', () => {
+  xhr.addEventListener(`load`, () => {
     if (xhr.status === 200) {
       onSuccess(xhr.response);
     } else {
-      onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
+      onError(`Статус ответа: ` + xhr.status + ` ` + xhr.statusText);
     }
   });
 
-  xhr.addEventListener('error', function () {
-    onError('Произошла ошибка соединения');
+  xhr.addEventListener(`error`, function () {
+    onError(`Произошла ошибка соединения`);
   });
-  xhr.addEventListener('timeout', function () {
-    onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+  xhr.addEventListener(`timeout`, function () {
+    onError(`Запрос не успел выполниться за ` + xhr.timeout + ` мс`);
   });
 
   xhr.timeout = 10000;
 
-  xhr.open('GET', URL);
+  xhr.open(`GET`, URL);
   xhr.send();
 };
 
