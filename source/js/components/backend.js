@@ -20,9 +20,8 @@ const load = (onSuccess, onError) => {
     onError(`Запрос не успел выполниться за ` + xhr.timeout + ` мс`);
   });
 
-  xhr.timeout = 10000;
-
   xhr.open(`GET`, URL);
+  xhr.timeout = 10000;
   xhr.send();
 };
 
